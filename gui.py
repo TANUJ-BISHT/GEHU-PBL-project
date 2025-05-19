@@ -109,6 +109,7 @@ class DeadlockSimulatorApp(tk.Frame):
             entry.delete(0, tk.END)
 
     def collect_data(self):
+        
         try:
             allocation = []
             max_matrix = []
