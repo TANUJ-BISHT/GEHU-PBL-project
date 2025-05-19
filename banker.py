@@ -1,5 +1,3 @@
-# banker.py
-
 def is_safe_state(allocation, max_matrix, available):
     n = len(allocation)       # number of processes
     m = len(available)        # number of resources
@@ -14,7 +12,6 @@ def is_safe_state(allocation, max_matrix, available):
         found = False
         for i in range(n):
             if not finish[i] and all(need[i][j] <= work[j] for j in range(m)):
-                # This process can run
                 for j in range(m):
                     work[j] += allocation[i][j]
                 finish[i] = True
@@ -22,6 +19,6 @@ def is_safe_state(allocation, max_matrix, available):
                 found = True
                 break
         if not found:
-            return False, []  # No safe sequence found
+            return False, []
 
     return True, safe_sequence

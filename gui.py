@@ -18,6 +18,17 @@ class DeadlockSimulatorApp(tk.Frame):
 
         self.create_init_screen()
 
+    def handle_next(self):
+        p = self.process_count.get()
+        r = self.resource_count.get()
+
+        if p <= 0 or r <= 0:
+            messagebox.showerror("Input Error", "Please enter valid numbers.")
+            return
+
+        self.init_screen.destroy()
+        self.create_matrix_input_screen(p, r)
+
     def create_init_screen(self):
         self.init_screen = tk.Frame(self)
         self.init_screen.pack(fill="both", expand=True)
@@ -38,17 +49,6 @@ class DeadlockSimulatorApp(tk.Frame):
 
         tk.Button(self.init_screen, text="Next",
                   command=self.handle_next).pack(pady=20)
-
-    def handle_next(self):
-        p = self.process_count.get()
-        r = self.resource_count.get()
-
-        if p <= 0 or r <= 0:
-            messagebox.showerror("Input Error", "Please enter valid numbers.")
-            return
-
-        self.init_screen.destroy()
-        self.create_matrix_input_screen(p, r)
 
     def create_matrix_input_screen(self, p, r):
         self.matrix_screen = tk.Frame(self)
