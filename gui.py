@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
 from banker import is_safe_state
-from wait_for_graph_01 import build_wait_for_graph, detect_cycle, visualize_graph
 
 class DeadlockSimulatorApp(tk.Frame):
     def __init__(self, master):
@@ -123,7 +122,7 @@ class DeadlockSimulatorApp(tk.Frame):
 
             available = [int(entry.get()) for entry in self.available_inputs]
 
-            # ✅ Run Banker’s Algorithm here
+            # Run Banker’s Algorithm here
             safe, sequence = is_safe_state(allocation, max_matrix, available)
 
             if not safe:
